@@ -1,38 +1,131 @@
+main {
+  padding: 24px;
+}
+
+.mb24 {
+  margin-bottom: 24px;
+}
+
+.mt24 {
+  margin-top: 24px;
+}
+
+.tgTitle {
+  margin-top: 12px;
+  color: #ffffff;
+}
+
+.tgLink {
+  color: #00b0f4;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.videoTitle {
+  margin-top: 12px;
+
+  color: #00b0f4;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
 .App {
-  text-align: center;
+  margin-top: 24px;
+  width: 100%;
+  display: flex;
+  gap: 36px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.leftbar, .rightbar, .content {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.leftbar, .rightbar {
+  background-color: #232633;
+  border-radius: 8px;
+  padding: 12px;
+  flex: 1;
+}
+
+.content {
+  flex: 3;
+  gap: 24px;
+}
+
+.post {
+  width: 100%;
+  max-width: 600px;
+  background-color: #232633;
+  border-radius: 8px;
+  padding: 12px;
+
+  text-decoration: none;
+  
+  /* margin-bottom: 24px; */
+}
+
+.postImage {
+  width: 100%;
+  border-radius: 8px;
+}
+
+header {
+  position: relative;
+
+  background-color: #232633;
+  border-radius: 8px;
+  padding: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navigatorItems {
+  position: absolute;
+
+  left: 0px;
+  right: 0px;
+
+  display: flex;
+  gap: 12px;
+  /* align-items: center; */
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+  border-radius: 8px;
+  width: 56px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navigatorItem {
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigatorItem:hover {
+  background-color: #313544;
 }
