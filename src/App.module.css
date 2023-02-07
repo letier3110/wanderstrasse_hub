@@ -6,6 +6,10 @@ main {
   margin-bottom: 24px;
 }
 
+.mt12 {
+  margin-top: 12px;
+}
+
 .mt24 {
   margin-top: 24px;
 }
@@ -13,6 +17,13 @@ main {
 .tgTitle {
   margin-top: 12px;
   color: #ffffff;
+}
+
+.tgHeader {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
 }
 
 .tgLink {
@@ -45,7 +56,8 @@ main {
 }
 
 .leftbar, .rightbar {
-  background-color: #232633;
+  /* background-color: #232633; */
+  background-color: transparent;
   border-radius: 8px;
   padding: 12px;
   flex: 1;

@@ -1,56 +1,65 @@
 import { FC } from 'react'
 import logo from './assets/logo.jpg'
-import './App.css'
 import { authorTgLink, authorTgPhoto, tgData, youtubeData } from './data/data'
+import s from './App.module.css'
 
 export const App: FC = () => {
   return (
     <main>
       <header>
-        <div className='logoWrapper'>
-          <img src={logo} className='logo' />
+        <div className={s.logoWrapper}>
+          <img src={logo} className={s.logo} />
           <h2>Wanderstrasse.tv</h2>
         </div>
-        <div className='navigatorItems'>
-          <div className='navigatorItem'>
-            <div className='navigatorIcon'>1</div>
-            <div className='navigatorText'>WC 3</div>
+        <div className={s.navigatorItems}>
+          <div className={s.navigatorItem}>
+            <div className={s.navigatorIcon}>1</div>
+            <div className={s.navigatorText}>WC 3</div>
           </div>
-          <div className='navigatorItem'>
-            <div className='navigatorIcon'>2</div>
-            <div className='navigatorText'>AoE2</div>
+          <div className={s.navigatorItem}>
+            <div className={s.navigatorIcon}>2</div>
+            <div className={s.navigatorText}>AoE2</div>
           </div>
-          <div className='navigatorItem'>
-            <div className='navigatorIcon'>3</div>
-            <div className='navigatorText'>🇺🇦</div>
+          <div className={s.navigatorItem}>
+            <div className={s.navigatorIcon}>3</div>
+            <div className={s.navigatorText}>🇺🇦</div>
           </div>
-          <div className='navigatorItem'>
-            <div className='navigatorIcon'>4</div>
-            <div className='navigatorText'>posts</div>
+          <div className={s.navigatorItem}>
+            <div className={s.navigatorIcon}>4</div>
+            <div className={s.navigatorText}>posts</div>
           </div>
         </div>
-        <div className='socials'>
+        <div className={s.socials}>
           <div>tg</div>
           <div>ds</div>
           <div>yt</div>
         </div>
       </header>
-      <div className='App'>
-        <div className='leftbar'>leftbar</div>
-        <div className='content'>
+      <div className={s.App}>
+        <div className={s.leftbar}></div>
+        <div className={s.content}>
           {tgData.map((item) => {
+            const isLinkInsideText = item.text.includes('https://')
             return (
-              <div className='post'>
-                {item.image === authorTgPhoto ? (
-                  <a className='tgLink' href={authorTgLink} target={'_blank'} rel='noopener noreferrer'>
-                    Wanderbraun: Warcraft 3 и RTS
-                  </a>
-                ) : (
-                  <div className='tgImage'>
-                    <img src={item.image} className='postImage' />
+              <div className={s.post}>
+                <a
+                  className={[s.tgHeader, s.mb24].join(' ')}
+                  href={authorTgLink}
+                  target={'_blank'}
+                  rel='noopener noreferrer'
+                >
+                  <img src={'https://web.telegram.org/z/favicon.svg'} width={20} />
+                  <div className={s.tgLink}>Wanderbraun: Warcraft 3 и RTS</div>
+                </a>
+                {item.image === authorTgPhoto ? null : (
+                  <div className={s.tgImage}>
+                    <img src={item.image} className={s.postImage} />
                   </div>
                 )}
-                <div className='tgTitle mt24'>{item.text}</div>
+                <div className={s.tgTitle}>
+                  {isLinkInsideText ? item.text.slice(0, item.text.indexOf('https://')) : item.text}
+                </div>
+                {item.widget !== '' && <div className={s.mt24} dangerouslySetInnerHTML={{ __html: item.widget }} />}
               </div>
             )
           })}
@@ -58,10 +67,21 @@ export const App: FC = () => {
             const url = 'https://www.youtube.com/watch?v=' + item.videoId
             // const url = 'https://www.youtube.com/embed/' + item.videoId
             return (
-              <a className='post' target={'_blank'} rel='noopener noreferrer' href={url} key={item.videoId}>
-                <div className='videoImage'>
-                  <img src={item.thumbnail} className='postImage' />
-                </div>
+              <div className={s.post} key={item.videoId}>
+                <a
+                  className={[s.tgHeader, s.mb24].join(' ')}
+                  href={authorTgLink}
+                  target={'_blank'}
+                  rel='noopener noreferrer'
+                >
+                  <img src={'https://www.youtube.com/s/desktop/156c3d3d/img/favicon_144x144.png'} width={20} />
+                  <div className={s.tgLink}>Wanderbraun: Warcraft 3 и RTS</div>
+                </a>
+                <a target={'_blank'} rel='noopener noreferrer' href={url}>
+                  <div className={s.videoImage}>
+                    <img src={item.thumbnail} className={s.postImage} />
+                  </div>
+                </a>
                 {/* <iframe
                   width='560'
                   height='315'
@@ -71,15 +91,19 @@ export const App: FC = () => {
                   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
                   allowFullScreen
                 ></iframe> */}
-                <div className='videoTitle'>{item.description}</div>
-                {/* <div className='videoDescription'>
+                <div className={s.mt12}>
+                  <a className={[s.videoTitle].join(' ')} target={'_blank'} rel='noopener noreferrer' href={url}>
+                    {item.description}
+                  </a>
+                </div>
+                {/* <div className={s.videoDescription}>
                   {item.description}
                 </div> */}
-              </a>
+              </div>
             )
           })}
         </div>
-        <div className='rightbar'>rightbar</div>
+        <div className={s.rightbar}></div>
       </div>
     </main>
   )
