@@ -8,7 +8,7 @@ export const App: FC = () => {
     <main>
       <header>
         <div className={s.logoWrapper}>
-          <img src={logo} className={s.logo} />
+          <img alt="logo" src={logo} className={s.logo} />
           <h2>Wanderstrasse.tv</h2>
         </div>
         <div className={s.navigatorItems}>
@@ -48,12 +48,12 @@ export const App: FC = () => {
                   target={'_blank'}
                   rel='noopener noreferrer'
                 >
-                  <img src={'https://web.telegram.org/z/favicon.svg'} width={20} />
+                  <img alt={'tg favicon'} src={'https://web.telegram.org/z/favicon.svg'} width={20} />
                   <div className={s.tgLink}>Wanderbraun: Warcraft 3 и RTS</div>
                 </a>
                 {item.image === authorTgPhoto ? null : (
                   <div className={s.tgImage}>
-                    <img src={item.image} className={s.postImage} />
+                    <img alt={item.text} src={item.image} className={s.postImage} />
                   </div>
                 )}
                 <div className={s.tgTitle}>
@@ -74,12 +74,12 @@ export const App: FC = () => {
                   target={'_blank'}
                   rel='noopener noreferrer'
                 >
-                  <img src={'https://www.youtube.com/s/desktop/156c3d3d/img/favicon_144x144.png'} width={20} />
+                  <img alt="youtube logo" src={'https://www.youtube.com/s/desktop/156c3d3d/img/favicon_144x144.png'} width={20} />
                   <div className={s.tgLink}>Wanderbraun: Warcraft 3 и RTS</div>
                 </a>
                 <a target={'_blank'} rel='noopener noreferrer' href={url}>
                   <div className={s.videoImage}>
-                    <img src={item.thumbnail} className={s.postImage} />
+                    <img alt={item.description} src={item.thumbnail} className={s.postImage} />
                   </div>
                 </a>
                 {/* <iframe
